@@ -55,10 +55,25 @@ html, body {
     height: 56px;
     width: 340px;
     border-radius: 12px;
+    cursor: pointer;
+    border:none;
     color: #000000;
     margin-left: auto;
     margin-right: auto;
     font-size:20px;
+}
+.buttonConfirmLogin:hover{
+    background-color: #00a62c;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    border: 1px dotted black;
+
+}
+.semCadastro{
+    margin-top: 20px;
+    margin-left: auto;
+    font-size:15px;
+    margin-right: auto;
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
