@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" id="homeViewHtml">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="Início" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../styles/home_view_style.css">
+  <title>Document</title>
+</head>
+<body id="homeViewBody">
+  <header id="searchBar">
+    <h2>Barra de busca</h2>
+  </header>
+  <div id="container">
+    <div id="navBar">
+      <div id="navOptions">
+        <div id="optionOne" class="row">
+          <div class="col">
+            <ion-icon name="sunny-outline"></ion-icon>
+          </div>
+          <div class="col">
+            Hoje
+          </div>
+        </div>
+        <div id="optionTwo" class="row">
+          <div class="col">
+            <ion-icon name="boat-outline"></ion-icon>
+          </div>
+          <div class="col">Uma segunda opção com muito texto</div>
+        </div>
+      </div>
+    </div>
+    <div id="todoListContent" cl>
+      <section id="todoListHeader">
+        <div>
+          <h5 id="todoListTitle">Hoje</h5>
+        </div>
+        <div id="todoListIcons">
+          <div>
+            <span class="badge rounded-pill text-bg-primary">Fácil</span>
+            <span class="badge rounded-pill text-bg-danger">Difícil</span>
+          </div>
+          <!--<div>01/04/2022</div>-->
+          <div>
+            01/04/2022
+            <ion-icon name="person-add-outline"></ion-icon>
+          </div>
+        </div>
+      </section>
+      <div id="progressBarIndicator" class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+      </div>
+      <div id="todo">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">Teste teste o teste a teste e teste, teste mais teste</label>
+        </div>
+        <div id="todoIcons">
+          <span class="badge rounded-pill text-bg-primary">Fácil</span>
+          01/04/2022
+          <ion-icon name="create-outline"></ion-icon>
+          <ion-icon name="close-circle"></ion-icon>
+        </div>
+      </div>
+      <div id="addTask">
+        <ion-icon name="add-circle-sharp"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
