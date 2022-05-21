@@ -1,10 +1,9 @@
-var checkboxValue1 = false;
-var progressBarPercentage = 0;
-var numAll = 3;
-var numChecked = 1;
+let checkboxValue1 = false;
+let progressBarPercentage = 0;
+let numAll = 0;
+let numChecked = 1;
 
-const editTaskHtml = 
-`<div id="updatedTask" class="input-group">
+const editTaskHtml = `<div id="updatedTask" class="input-group">
   <input type="text" class="form-control" placeholder="Qual sua tarefa?" aria-label="Qual sua tarefa?" aria-describedby="basic-addon1">
 </div>`;
 
@@ -33,7 +32,6 @@ function newTask() {
   </div>`;
 }
 
-
 function changeCheckboxValue() {
   this.checkboxValue1 = !checkboxValue1;
   // TODO: Não funciona
@@ -42,30 +40,72 @@ function changeCheckboxValue() {
 
 function updateProgressBar() {
   // TODO: Não funciona
-  // var numAll = ('input[type="checkbox"]').length;
-  // var numChecked = ('input[type="checkbox"]:checked').length;
+  // let numAll = ('input[type="checkbox"]').length;
+  // let numChecked = ('input[type="checkbox"]:checked').length;
 
-  if(numAll > 0) {
-    progressBarPercentage = (numChecked/numAll)*100;
+  if (numAll > 0) {
+    progressBarPercentage = (numChecked / numAll) * 100;
     document.getElementById("progressBar").ariaValueNow(progressBarPercentage);
   }
 }
 
 function updateTaskDescription(index) {
-  var element = document.getElementById(`task${index}Description`);
+  let element = document.getElementById(`task${index}Description`);
   element.innerHTML = editTaskHtml;
 }
 
 function deleteTask(index) {
-  var element = document.getElementById(`task${index}`);
-  element.innerHTML = '';
+  let element = document.getElementById(`task${index}`);
+  element.innerHTML = "";
   numAll--;
   console.log(numAll);
 }
 
 function addTask() {
-  var taskHTML = document.createElement('input');
+  numAll++
+  let parent = document.getElementById("tasks");
+
+  let taskHTML = document.createElement("div");
+  taskHTML.setAttribute("id", `task${numAll}`);
+
+  let element = document.createElement("div");
+  element.classList.add("form-check");
+
+  let input = document.createElement("input");
+  input.classList.add("form-check-input");
+  input.setAttribute("type", "checkbox")
+  input.setAttribute("id", "flexCheckDefault");
+
+  let label = document.createElement("label");
+  label.classList.add("form-check-label");
+  label.setAttribute("id", `task${numAll}Description`);
+  label.setAttribute("for", "flexCheckDefault");
+  label.innerText = "Teste teste o teste a teste e teste, teste mais teste";
   
-  var parent = document.getElementById('tasks');
+
+  let divIcons = document.createElement("div");
+  divIcons.setAttribute("id", "todoIcons");
+
+  let span = document.createElement("span");
+  span.classList.add("badge" ,"rounded-pill" , "text-bg-primary");
+  span.innerHTML= "Fácil";
+
+  let button = document.createElement("button");
+  button.classList.add("btn");
+  button.setAttribute("onclick", `updateTaskDescription(${numAll})`);
+  button.innerHTML= '<ion-icon name="pencil-sharp"></ion-icon>';
+
+  let buttonDelete = document.createElement("button");
+  buttonDelete.classList.add("btn");
+  buttonDelete.setAttribute("onclick", `deleteTask(${numAll})`);
+  buttonDelete.innerHTML= '<ion-icon name="close-circle"></ion-icon>';
+
+  divIcons.appendChild(span)
+  divIcons.appendChild(button);
+  divIcons.appendChild(buttonDelete);
+  input.appendChild(label);
+  element.appendChild(input);
+  taskHTML.appendChild(element);
+  taskHTML.appendChild(divIcons);
   parent.appendChild(taskHTML);
 }
