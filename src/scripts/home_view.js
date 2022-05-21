@@ -1,18 +1,18 @@
-var checkboxValue1 = false;
-var progressBarPercentage = 0;
-var numAll = 3;
-var numChecked = 1;
+let checkboxValue1 = false;
+let progressBarPercentage = 0;
+let numAll = 3;
+let numChecked = 1;
 
 const editTaskHtml = 
-`<div id="updatedTask" class="input-group">
+`
+<div id="updatedTask" class="input-group">
   <input type="text" class="form-control" placeholder="Qual sua tarefa?" aria-label="Qual sua tarefa?" aria-describedby="basic-addon1">
+  <button class="btn" onclick="${confirmUpdateTask()}">
+    <ion-icon name="checkmark-outline"></ion-icon>
+  </button>
 </div>`;
 
-function newTask() {
-  // TODO: Não funciona
-  num = numAll++;
-
-  return `
+const taskHTML = `
   <div id="task${num}">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -23,18 +23,25 @@ function newTask() {
     <div id="todoIcons">
       <span class="badge rounded-pill text-bg-primary">Fácil</span>
       01/04/2022
-      <button class="btn" onclick="updateTaskDescription(${num})">
+      <button class="btn" onclick="updateTaskDescriptionHTML(${num})">
         <ion-icon name="pencil-sharp"></ion-icon>
       </button>
       <button class="btn">
         <ion-icon name="close-circle" onclick="deleteTask(${num})"></ion-icon>
       </button>
     </div>
-  </div>`;
+  </div>
+`;
+
+function newTask() {
+  // TODO: Não funciona
+  num = numAll++;
+
+  return ;
 }
 
 
-function changeCheckboxValue() {
+function updateCheckboxValue() {
   this.checkboxValue1 = !checkboxValue1;
   // TODO: Não funciona
   updateProgressBar();
@@ -51,21 +58,25 @@ function updateProgressBar() {
   }
 }
 
-function updateTaskDescription(index) {
-  var element = document.getElementById(`task${index}Description`);
+function updateTaskDescriptionHTML(index) {
+  let element = document.getElementById(`task${index}Description`);
   element.innerHTML = editTaskHtml;
 }
 
+function confirmUpdateTask() {
+  
+}
+
 function deleteTask(index) {
-  var element = document.getElementById(`task${index}`);
+  let element = document.getElementById(`task${index}`);
   element.innerHTML = '';
   numAll--;
   console.log(numAll);
 }
 
 function addTask() {
-  var taskHTML = document.createElement('input');
+  let taskHTML = document.createElement('input');
   
-  var parent = document.getElementById('tasks');
+  let parent = document.getElementById('tasks');
   parent.appendChild(taskHTML);
 }
