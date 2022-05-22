@@ -80,7 +80,7 @@
   display: flex;
   justify-content: center;
 }
-#editTask {
+#editTodoBoard {
   display: flex;
 }
 ion-icon {
