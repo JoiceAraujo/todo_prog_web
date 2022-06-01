@@ -12,6 +12,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap" rel="stylesheet">
+    <style>
+        .container-fluid{
+    width:100%;
+    height: 6%;
+    background-color:#ffffff;
+    box-shadow: 0px 2px 10px black;
+}
+
+.titulo_top_left{
+    font-size:35px;
+    font-weight: 600;
+    font-family: 'Londrina Outline', cursive;
+    
+}
+
+.submit-lente {
+    position:absolute;
+    top:2px; left:0;
+    z-index:10;
+    border:none;
+    background:transparent;
+    outline:none;
+  }
+  
+  .submit-line_top_mid {
+    position: relative;
+    width: 500px;
+  }
+  
+  .submit-line_top_mid input {
+    width: 100%;
+    background-color: #E5E5E5;
+    border-radius: 10px;
+
+}
+.detalhes{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.barraPesquisa{
+    padding-left: 30px;
+}
+.noBorderButton{
+    border:none;
+    outline: none;
+    background-color: transparent;
+}
+    </style>
 </head>
 <body>
     <div class="container-fluid">
