@@ -1,7 +1,7 @@
 <?php
 namespace App\Modelos;
 
-use App\Database;
+use App\BancoDeDados;
 
 class Usuario {
   private $id;

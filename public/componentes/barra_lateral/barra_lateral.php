@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" href="barraLateralStyle.css">
+    <link rel="stylesheet" href="estilo_barra_lateral.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title> Barra lateral</title>
     <style>
@@ -430,10 +430,10 @@
 
     </nav>
 
-    <section class="home">
+    <!--<section class="home">
         <div class="text">Aqui vai os quadrados...
         </div>
-    </section>
+    </section>-->
 
     <script>
         const body = document.querySelector('body'),
@@ -444,24 +444,24 @@
         modeText = body.querySelector(".mode-text");
 
 
-toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
-})
+        toggle.addEventListener("click" , () =>{
+            sidebar.classList.toggle("close");
+        })
 
-searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
+        searchBtn.addEventListener("click" , () =>{
+            sidebar.classList.remove("close");
+        })
 
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Light mode";
-    }else{
-        modeText.innerText = "Dark mode";
-        
-    }
-});
+        modeSwitch.addEventListener("click" , () =>{
+            body.classList.toggle("dark");
+            
+            if(body.classList.contains("dark")){
+                modeText.innerText = "Light mode";
+            }else{
+                modeText.innerText = "Dark mode";
+                
+            }
+        });
     </script>
 
 </body>
