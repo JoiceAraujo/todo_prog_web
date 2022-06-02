@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" href="barraLateralStyle.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <title> Barra lateral</title>
 </head>
 <body>
     <nav class="sidebar close">
@@ -128,25 +127,24 @@
         modeText = body.querySelector(".mode-text");
 
 
-toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
-})
+    toggle.addEventListener("click" , () =>{
+        sidebar.classList.toggle("close");
+    })
 
-searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
+    searchBtn.addEventListener("click" , () =>{
+        sidebar.classList.remove("close");
+    })
 
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Light mode";
-    }else{
-        modeText.innerText = "Dark mode";
+    modeSwitch.addEventListener("click" , () =>{
+        body.classList.toggle("dark");
         
-    }
-});
-    </script>
-
+        if(body.classList.contains("dark")){
+            modeText.innerText = "Light mode";
+        }else{
+            modeText.innerText = "Dark mode";
+            
+        }
+    });
+        </script>
 </body>
 </html>

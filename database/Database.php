@@ -1,7 +1,9 @@
 <?php
 use PDO;
 
-  class Database {
+namespace App;
+
+class Database {
     static $connection;
 
     static public function getConnection(): PDO
@@ -17,14 +19,14 @@ use PDO;
     {
         $connection = self::getConnection();
         $connection->exec('
-          CREATE TABLE IF NOT EXISTS usuario (
-              nome text NOT NULL,
-              id INTEGER primary KEY,
-              email text UNIQUE NOT NULL,
-              senha text NOT NULL
+          CREATE TABLE IF NOT EXISTS usuarios (
+            id INTEGER primary KEY,
+            senha text NOT NULL,
+            nome text NOT NULL,
+            email text UNIQUE NOT NULL
           );
         
-          CREATE TABLE IF NOT EXISTS tarefa (
+          CREATE TABLE IF NOT EXISTS tarefas (
               id INTEGER primary KEY,
               descricao text NOT NULL,
               dificuldade text NOT NULL,
@@ -36,7 +38,7 @@ use PDO;
               FOREIGN KEY (id_usuario) REFERENCES usuario (id) on DELETE CASCADE
           );
         
-          CREATE TABLE IF NOT EXISTS quadro (
+          CREATE TABLE IF NOT EXISTS quadros (
             nome text NOT NULL,
               id INTEGER primary KEY,
               data_criacao text NOT NULL,
