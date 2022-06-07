@@ -5,8 +5,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="../estilos/estilo_pagina_inicial.css">
-  <script language="JavaScript" src="../scripts/pagina_inicial.js"></script>
+  <link rel="stylesheet" href="<?= BASEPATH  ?>app/estilos/estilo_pagina_inicial.css">
+  <link rel="stylesheet" href="<?= BASEPATH  ?>app/estilos/estilo_pagina_inicial.css">
 
   <title>Página inicial</title>
 </head>
@@ -14,14 +14,14 @@
   <header id="barraDeBusca">
     <?php
       error_reporting(E_ERROR | E_PARSE);
-      include('../../public/componentes/barra_busca/barra_busca.php'); 
+      include('publico/componentes/barra_busca/barra_busca.php'); 
     ?>
   </header>
   <div id="container">
     <section id="barraDeNavegacao">
       <?php
         error_reporting(E_ERROR | E_PARSE);
-        include('../../public/componentes/barra_lateral/barra_lateral.php'); 
+        include('publico/componentes/barra_lateral/barra_lateral.php'); 
       ?>
     </section>
 

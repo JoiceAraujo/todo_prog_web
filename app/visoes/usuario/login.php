@@ -17,8 +17,8 @@
                 <h3 class="tituloLogin">To Do List</h3>
                 <input type="text" class="login" id="loginName" placeholder="Digite o seu nome:"/>
                 <input type="password" class="password" id="loginPassword" placeholder="Senha:"/>
-                <button type="submit" class="buttonConfirmLogin"><a href="/public/components/barraLateral/barraLateral.html">Login!</a></button>
-                <span class="semCadastro">Não tem cadastro? <a rel="stylesheet" href="https://www.google.com"> Acesse aqui.</a></span>
+                <button type="submit" class="buttonConfirmLogin">Login</button>
+                <span class="semCadastro">Não tem cadastro? <a rel="stylesheet" href="<?= BASEPATH ?>cadastrar"> Acesse aqui.</a></span>
             </form>
         </div>
     </div>

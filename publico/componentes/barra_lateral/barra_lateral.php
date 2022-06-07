@@ -343,7 +343,24 @@
         <div class="menu-bar">
             <div class="menu">
 
-                <ul class="menu-links">
+                <?php
+                include './../../../app/controladores/Quadro.php';
+                
+                use app\controladores\QuadroController;
+
+                $quadros = QuadroController::listar();
+                foreach($quadros as $quadro): ?>
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bxs-sun icon' ></i>
+                                <span class="text nav-text"><?= $quadro; ?></span>
+                            </a>
+                        </li>
+                    </ul>
+                <?php endforeach; ?>
+
+                <!-- <ul class="menu-links">
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bxs-sun icon' ></i>
@@ -393,7 +410,7 @@
                         </a>
                     </li>
 
-                </ul>
+                </ul> -->
             </div>
             
             <div class="addRequest">
