@@ -315,17 +315,14 @@
         color: var(--text-color);
     }
 
-    .addRequest{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
+    
 
     </style>    
 </head>
 
 <body>
     <nav class="sidebar close">
+        
         <header>
             <div class="image-text">
                 <span class="image">
@@ -342,25 +339,14 @@
 
         <div class="menu-bar">
             <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-calendar-check icon' ></i>
+                            <span class="text nav-text">Todas</span>
+                        </a>
+                    </li>
 
-                <?php
-                include './../../../app/controladores/Quadro.php';
-                
-                use app\controladores\QuadroController;
-
-                $quadros = QuadroController::listar();
-                foreach($quadros as $quadro): ?>
-                    <ul class="menu-links">
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class='bx bxs-sun icon' ></i>
-                                <span class="text nav-text"><?= $quadro; ?></span>
-                            </a>
-                        </li>
-                    </ul>
-                <?php endforeach; ?>
-
-                <!-- <ul class="menu-links">
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bxs-sun icon' ></i>
@@ -389,68 +375,21 @@
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-home icon' ></i>
-                            <span class="text nav-text">Casa</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-rocket icon'></i>
-                            <span class="text nav-text">Férias</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-briefcase-alt icon' ></i>
-                            <span class="text nav-text">Trabalho</span>
-                        </a>
-                    </li>
-
-                </ul> -->
+                </ul>
             </div>
             
-            <div class="addRequest">
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bxs-plus-square icon'></i>
-                    </a>
-                </li>
-            </div>
-            
-
             <div class="bottom-content">
                 <li class="">
-                    <a href="/templates/login/index.html">
+                    <a href="<?= BASEPATH ?>login">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>
-                </li>
-
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
                 </li>
                 
             </div>
         </div>
 
     </nav>
-
-    <!--<section class="home">
-        <div class="text">Aqui vai os quadrados...
-        </div>
-    </section>-->
 
     <script>
         const body = document.querySelector('body'),

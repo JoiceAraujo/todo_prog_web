@@ -14,14 +14,14 @@
   <header id="barraDeBusca">
     <?php
       error_reporting(E_ERROR | E_PARSE);
-      include('publico/componentes/barra_busca/barra_busca.php'); 
+      include('app/visoes/componentes/barra_busca/barra_busca.php'); 
     ?>
   </header>
   <div id="container">
     <section id="barraDeNavegacao">
       <?php
         error_reporting(E_ERROR | E_PARSE);
-        include('publico/componentes/barra_lateral/barra_lateral.php'); 
+        include('app/visoes/componentes/barra_lateral/barra_lateral.php'); 
       ?>
     </section>
 
