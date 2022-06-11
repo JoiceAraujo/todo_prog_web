@@ -24,25 +24,17 @@ class BancoDeDados {
             nome text NOT NULL,
             email text UNIQUE NOT NULL
           );
-        
+
           CREATE TABLE IF NOT EXISTS tarefas (
               id INTEGER primary KEY,
               descricao text NOT NULL,
+              importante text NOT NULL,
               dificuldade text NOT NULL,
+              data_limite text NOT NULL,
               data_criacao text NOT NULL,
-              id_quadro integer NOT NULL,
               id_usuario integer NOT NULL,
               tarefa_realizada text NOT NULL,
-              FOREIGN KEY (id_quadro) REFERENCES quadro (id) on DELETE CASCADE,
-              FOREIGN KEY (id_usuario) REFERENCES usuario (id) on DELETE CASCADE
-          );
-        
-          CREATE TABLE IF NOT EXISTS quadros (
-            nome text NOT NULL,
-              id INTEGER primary KEY,
-              data_criacao text NOT NULL,
-              id_usuario integer NOT NULL,
-              FOREIGN KEY (id_usuario) REFERENCES usuario (id) on DELETE CASCADE
+              FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
           );
         ');
     }
