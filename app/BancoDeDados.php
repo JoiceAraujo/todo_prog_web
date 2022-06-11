@@ -1,24 +1,23 @@
 <?php
+namespace App;
 use PDO;
 
-namespace App;
+class BancoDeDados {
+    static $conexao;
 
-class Database {
-    static $connection;
-
-    static public function getConnection(): PDO
+    static public function pegarOuCriarConexao(): PDO
     {
-        if (isset(self::$connection)) return self::$connection;
+        if (isset(self::$conexao)) return self::$conexao;
 
-        self::$connection = new PDO('sqlite:todo_db.sqlite');
-        self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return self::$connection;
+        self::$conexao = new PDO('sqlite:todo_db.sqlite');
+        self::$conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return self::$conexao;
     }
 
-    static public function createSchema(): void
+    static public function criarSchema(): void
     {
-        $connection = self::getConnection();
-        $connection->exec('
+        $conexao = self::pegarOuCriarConexao();
+        $conexao->exec('
           CREATE TABLE IF NOT EXISTS usuarios (
             id INTEGER primary KEY,
             senha text NOT NULL,

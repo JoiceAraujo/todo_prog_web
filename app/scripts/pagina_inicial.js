@@ -1,21 +1,21 @@
-const editTaskHtml = `<div id="updatedTask" class="input-group">
+const editarTarefaHTML = `<div id="updatedTask" class="input-group">
   <input type="text" class="form-control" placeholder="Qual sua tarefa?" aria-label="Qual sua tarefa?" aria-describedby="basic-addon1">
   <button class="btn">
     <ion-icon name="checkmark-outline"></ion-icon>
   </button>
 </div>`;
 
-function updateTaskDescriptionHTML(index) {
+function atualizarDescricaoDaTarefaHTML(index) {
   let element = document.getElementById(`task${index}Description`);
-  element.innerHTML = editTaskHtml;
+  element.innerHTML = editarTarefaHTML;
 }
 
-function deleteTask(index) {
+function apagarTarefa(index) {
   let element = document.getElementById(`task${index}`);
   element.innerHTML = "";
 }
 
-function addTask() {
+function adicionarTarefa() {
   /**
    * Tentamos criar uma estrutura com JS puro que iria criar uma tarefa na tela, mas como ainda não temos total controle do índice,
    * outras funcionalidades como a edição e apagar a tarefa estavam sendo prejudicadas.
@@ -72,10 +72,10 @@ function addTask() {
   alert('Funcionalidade em desenvolvimento');
 }
 
-function editTodoBoard() {
+function editarQuadro() {
   alert('Funcionalidade em desenvolvimento');
 }
 
-function deleteTodoBoard() {
+function apagarQuadro() {
   alert('Funcionalidade em desenvolvimento');
 }

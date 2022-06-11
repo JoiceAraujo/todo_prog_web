@@ -1,7 +1,9 @@
 <?php 
   error_reporting(E_ALL ^ E_WARNING);
 
-  include_once __DIR__ . '/database/Database.php';
+  include_once __DIR__ . '/app/BancoDeDados.php';
 
-  Database::createSchema();
+  use App\BancoDeDados;
+
+  BancoDeDados::criarSchema();
 ?>
