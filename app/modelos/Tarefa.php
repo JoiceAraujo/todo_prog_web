@@ -34,8 +34,6 @@
 
     public function salvar(): void
     {
-        $tarefaDadosNormalizados;
-
         $con = BancoDeDados::pegarOuCriarConexao();
 
         $stm = $con->prepare('INSERT INTO tarefas (descricao, importante, dificuldade, 
