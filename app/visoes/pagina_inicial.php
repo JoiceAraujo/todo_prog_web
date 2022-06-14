@@ -115,9 +115,11 @@
       </ul>
 
       <section id="adicionarTarefa">
-        <button class="btn" onclick="adicionarTarefa()">
-          <ion-icon name="add-circle-sharp"></ion-icon>
-        </button>
+        <a href="<?= BASEPATH ?>novaTarefa">
+          <button class="btn">
+            <ion-icon name="add-circle-sharp"></ion-icon>
+          </button>
+        </a>
         <div id="botoesDeAcaoDoQuadro">
           <button class="btn" onclick="editarQuadro()">
             <ion-icon name="pencil-sharp"></ion-icon>
