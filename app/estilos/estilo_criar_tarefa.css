@@ -1,0 +1,22 @@
+body {
+  width: 90vw;
+  height: 60vh;
+  display: flex;
+  margin: 3em;
+  justify-content: center;
+  background-color: #E4E9F7;
+}
+
+form {
+  width: 80vh;
+}
+
+a {
+  margin-right: 15px;
+}
+
+.botaoDeVoltar {
+  height: 10%;
+  display: block;
+  font-size: 20px;
+}
