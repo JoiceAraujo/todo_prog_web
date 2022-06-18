@@ -333,7 +333,6 @@
                     <span class="profession">Prog Web</span>
                 </div>
             </div>
-
             <i class='bx bx-chevron-right toggle'></i>
         </header>
 
@@ -341,51 +340,41 @@
             <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="<?= BASEPATH ?>all">
                             <i class='bx bxs-calendar-check icon' ></i>
                             <span class="text nav-text">Todas</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="<?= BASEPATH ?>today">
                             <i class='bx bxs-sun icon' ></i>
                             <span class="text nav-text">Hoje</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="<?= BASEPATH ?>this-week">
                             <i class='bx bx-calendar-week icon' ></i>
                             <span class="text nav-text">Essa semana</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="<?= BASEPATH ?>this-month">
                             <i class='bx bxs-calendar icon' ></i>
                             <span class="text nav-text">Esse mês</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="<?= BASEPATH ?>important">
                             <i class='bx bxs-error icon' ></i>
                             <span class="text nav-text">Importante</span>
                         </a>
                     </li>
 
                 </ul>
-            </div>
-            
-            <div class="bottom-content">
-                <li class="">
-                    <a href="<?= BASEPATH ?>login">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-                
             </div>
         </div>
 

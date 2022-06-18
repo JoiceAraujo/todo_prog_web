@@ -19,19 +19,25 @@
   BancoDeDados::criarSchema();
 
   $tarefaCtrl = new TarefaController();
-  $usuarioCtrl = new UsuarioController();
   $paginaInicialCtrl = new PaginaInicialController();
 
-  Route::add('/home', fn() => $paginaInicialCtrl->home(), ['get']);
-  Route::add('/login', fn() => $usuarioCtrl->login(), ['get']);
-  Route::add('/cadastrar', fn() => $usuarioCtrl->cadastrar(), ['get']);
+  Route::add('/all', fn() => $paginaInicialCtrl->all(), ['get']);
+  Route::add('/today', fn() => $paginaInicialCtrl->today(), ['get']);
+  Route::add('/this-week', fn() => $paginaInicialCtrl->thisWeek(), ['get']);
+  Route::add('/this-month', fn() => $paginaInicialCtrl->thisMonth(), ['get']);
+  Route::add('/important', fn() => $paginaInicialCtrl->important(), ['get']);
   Route::add('/novaTarefa', fn() => $tarefaCtrl->novaTarefaVisao(), ['get']);
   
   Route::add('/novaTarefa', fn() => $tarefaCtrl->novaTarefa(), ['post']);
 
+    /* Fazer a lógica do login, se der tempo
+  $usuarioCtrl = new UsuarioController();
+  Route::add('/login', fn() => $usuarioCtrl->login(), ['get']);
+  Route::add('/cadastrar', fn() => $usuarioCtrl->cadastrar(), ['get']); */
+
 
   Route::add('/', function () {
-    header('Location: ' . BASEPATH . 'login');
+    header('Location: ' . BASEPATH . 'all');
   }, ['get']);
   
   Route::add('/.*', function () {

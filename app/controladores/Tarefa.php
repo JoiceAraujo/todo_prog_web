@@ -14,19 +14,22 @@
 
     public function novaTarefa(): void {
       try {
+        date_default_timezone_set('America/Campo_Grande');
+        $dataSemFormatacao = strtotime($_POST['dataLimite']);
+
         $tarefa = new Tarefa(
         $_POST['descricao'], 
         $_POST['importante'], 
         $_POST['dificuldade'],
-        $_POST['dataLimite'],
+        date("d/m/y", $dataSemFormatacao),
         date('d/m/y'),
         'false',
         '1');
 
         $tarefa->salvar();
-        header('Location: ' . BASEPATH . 'home');
+        header('Location: ' . BASEPATH . 'all');
       } catch (\Throwable $th) {
-        header('Location: ' . BASEPATH . 'home');
+        header('Location: ' . BASEPATH . 'all');
       }
       # TODO JOICE: Se der tempo, criar um alert para mandar uma mensagem
     }
