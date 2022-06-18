@@ -10,7 +10,9 @@
   <title>Nova Tarefa</title>
 </head>
 <body>
-  <a href="<?= BASEPATH  ?>home" class="btn botaoDeVoltar">
+  <!--TODO JOICE: Ver como passa parâmetro para cá. Isso vai mudar de acordo com 
+  a página que chamou a criar_tarefa.php -->
+  <a href="<?= BASEPATH  ?>all" class="btn botaoDeVoltar">
     <i class='bx bx-arrow-back icon'></i>
   </a>
 
@@ -35,15 +37,15 @@
       <label for="dificuldade" class="form-label">Qual o nível de dificuldade dessa tarefa?</label>
       <select class="form-select" id="dificuldade" name="dificuldade" required>
         <option value="">Selecione...</option>
-        <option value="facil">Fácil</option>
-        <option value="medio">Média</option>
-        <option value="dificil">Difícil</option>
+        <option value="Fácil">Fácil</option>
+        <option value="Médio">Média</option>
+        <option value="Difícil">Difícil</option>
       </select>
     </div>
 
     <div class="mb-3">
       <label for="dataLimite" class="form-label">Qual a data limite para realizar essa tarefa?</label>
-      <input type="date" class="form-control" id="dataLimite" name="dataLimite" required>
+      <input type="date" class="form-control" id="dataLimite" name="dataLimite" min=<?= date("Y-m-d") ?> required>
     </div>
 
     <button type="submit" class="btn btn-primary">Cadastrar</button>    
