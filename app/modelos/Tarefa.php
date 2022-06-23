@@ -37,7 +37,7 @@
       $this->tarefaRealizada = $tarefaRealizada;
       $this->usuario = $usuario;
     }
-   
+
     public function __construct4(string $id, string $descricao, string $dificuldade,
     string $tarefaRealizada)
     {
@@ -45,6 +45,16 @@
       $this->descricao = $descricao;
       $this->dificuldade = $dificuldade;
       $this->tarefaRealizada = $tarefaRealizada;
+    }
+   
+    public function __construct5(string $id, string $descricao, string $dificuldade,
+    string $tarefaRealizada, string $dataLimite)
+    {
+      $this->id = $id;
+      $this->descricao = $descricao;
+      $this->dificuldade = $dificuldade;
+      $this->tarefaRealizada = $tarefaRealizada;
+      $this->dataLimite = $dataLimite;
     }
   
     public function __get($campo) {
@@ -79,14 +89,20 @@
       $con = BancoDeDados::pegarOuCriarConexao();
       $tarefas = array();
 
-      $sql = 'SELECT id, tarefa_realizada, descricao, dificuldade FROM tarefas
+      $sql = 'SELECT id, tarefa_realizada, descricao, dificuldade, data_limite FROM tarefas
       where id_usuario = :usuario';
       $stm = $con->prepare($sql);
       $stm->execute(array('usuario' => 1));
       $tarefasBD = $stm->fetchAll();
 
       foreach($tarefasBD as $row) {
-        $tarefa = new Tarefa($row['id'], $row['descricao'], $row['dificuldade'], $row['tarefa_realizada']);
+        $tarefa = new Tarefa(
+          $row['id'], 
+          $row['descricao'], 
+          $row['dificuldade'], 
+          $row['tarefa_realizada'],
+          $row['data_limite'],
+        );
         $tarefas[] = $tarefa;
       }
 
@@ -95,17 +111,25 @@
 
     static public function listarTarefasComLimiteParaHoje() : array
     {
+      date_default_timezone_set('America/Campo_Grande');
+
       $con = BancoDeDados::pegarOuCriarConexao();
       $tarefas = array();
 
-      $sql = 'SELECT id, tarefa_realizada, descricao, dificuldade FROM tarefas
+      $sql = 'SELECT id, tarefa_realizada, descricao, dificuldade, data_limite FROM tarefas
       where id_usuario = :usuario and data_limite = :dataAtual';
       $stm = $con->prepare($sql);
       $stm->execute(array('usuario' => 1, 'dataAtual' => date('d/m/y')));
       $tarefasBD = $stm->fetchAll();
 
       foreach($tarefasBD as $row) {
-        $tarefa = new Tarefa($row['id'], $row['descricao'], $row['dificuldade'], $row['tarefa_realizada']);
+        $tarefa = new Tarefa(
+          $row['id'], 
+          $row['descricao'], 
+          $row['dificuldade'], 
+          $row['tarefa_realizada'],
+          $row['data_limite'],
+        );
         $tarefas[] = $tarefa;
       }
 
@@ -122,7 +146,7 @@
         return $tarefas; 
       }
 
-      $sql = 'SELECT id, tarefa_realizada, descricao, dificuldade FROM tarefas
+      $sql = 'SELECT id, tarefa_realizada, descricao, dificuldade, data_limite FROM tarefas
         where id_usuario = :usuario and 
         data_limite = :data01 OR 
         data_limite = :data02 OR 
@@ -148,7 +172,13 @@
         $tarefasBD = $stm->fetchAll();
 
         foreach($tarefasBD as $row) {
-          $tarefa = new Tarefa($row['id'], $row['descricao'], $row['dificuldade'], $row['tarefa_realizada']);
+          $tarefa = new Tarefa(
+            $row['id'], 
+            $row['descricao'], 
+            $row['dificuldade'], 
+            $row['tarefa_realizada'],
+            $row['data_limite'],
+          );
           $tarefas[] = $tarefa;
         }
 
@@ -157,6 +187,8 @@
 
     static private function montarPeriodo() : array
     {
+      date_default_timezone_set('America/Campo_Grande');
+      
       $dataAtual = date('Y-m-d');
       $inicio = new DateTime($dataAtual);
       $fim = new DateTime($dataAtual);
@@ -185,7 +217,13 @@
       $tarefasBD = $stm->fetchAll();
 
       foreach($tarefasBD as $row) {
-        $tarefa = new Tarefa($row['id'], $row['descricao'], $row['dificuldade'], $row['tarefa_realizada']);
+        $tarefa = new Tarefa(
+          $row['id'], 
+          $row['descricao'],
+          $row['dificuldade'], 
+          $row['tarefa_realizada'],
+          $row['data_limite'],
+        );
         $tarefas[] = $tarefa;
       }
 
@@ -197,14 +235,20 @@
       $con = BancoDeDados::pegarOuCriarConexao();
       $tarefas = array();
 
-      $sql = 'SELECT id, tarefa_realizada, descricao, dificuldade FROM tarefas 
+      $sql = 'SELECT id, tarefa_realizada, descricao, dificuldade, data_limite FROM tarefas 
       where id_usuario = :usuario and importante = :importante';
       $stm = $con->prepare($sql);
       $stm->execute(array('usuario' => 1, 'importante' => 'sim'));
       $tarefasBD = $stm->fetchAll();
 
       foreach($tarefasBD as $row) {
-        $tarefa = new Tarefa($row['id'], $row['descricao'], $row['dificuldade'], $row['tarefa_realizada']);
+        $tarefa = new Tarefa(
+          $row['id'], 
+          $row['descricao'], 
+          $row['dificuldade'], 
+          $row['tarefa_realizada'],
+          $row['data_limite'],
+        );
         $tarefas[] = $tarefa;
       }
 

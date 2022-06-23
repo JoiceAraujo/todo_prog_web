@@ -71,16 +71,11 @@
             </div>
             <div class="col-md-8" style="display: flex;justify-content: space-evenly;align-items: center;">
                 <div class="submit-line_top_mid">
-                    <button class="submit-lente" type="submit">
+                    <button class="submit-lente" type="submit" style="margin-left: 15px">
                       <i class="bi bi-search"></i>
                     </button>
                     <input class="barraPesquisa" type="text" />
                 </div>
-            </div>
-            <div class="col-md-2 detalhes">
-                <button class="noBorderButton"><i class="bi bi-alarm"></i></button>
-                <button class="noBorderButton"><i class="bi bi-gear"></i></button>
-                <button class="noBorderButton"><i class="bi bi-person-circle"></i></button>
             </div>
         </div>
     </div>

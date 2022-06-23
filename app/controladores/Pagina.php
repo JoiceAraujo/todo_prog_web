@@ -3,7 +3,7 @@
 
   use App\Modelos\Tarefa;
 
-  class PaginaInicialController {
+  class PaginaController {
     function __construct() {}
 
     public function today(): void {
