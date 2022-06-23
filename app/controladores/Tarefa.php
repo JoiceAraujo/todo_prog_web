@@ -8,7 +8,8 @@
   class TarefaController {
     function __construct() {}
 
-    public function novaTarefaVisao(): void {
+    public function novaTarefaVisao($param): void {
+      $paginaRetorno = $param;
       require __DIR__ . '/../visoes/tarefas/criar_tarefa.php';
     }
 
@@ -27,11 +28,12 @@
         '1');
 
         $tarefa->salvar();
-        header('Location: ' . BASEPATH . 'all');
+
+        $path = $_POST['path'];
+        header('Location: ' . $path);
       } catch (\Throwable $th) {
         header('Location: ' . BASEPATH . 'all');
       }
-      # TODO JOICE: Se der tempo, criar um alert para mandar uma mensagem
     }
   }
 ?>

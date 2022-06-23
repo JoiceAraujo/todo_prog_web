@@ -35,36 +35,36 @@
       <?php } else { ?>
         <section id="cabecalhoTodoList">
           <div>
-            <h5> 
+            <h5>
+              <?= date_default_timezone_set('America/Campo_Grande'); ?> 
               Tarefas que devem ser finalizadas até hoje - <?= date('d/m/y'); ?>
             </h5>
           </div>
         </section>
 
-        <div id="barraDeProgresso" class="progress">
-          <div id="progressBar" class="progress-bar" role="progressbar" style="width: 1%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <ul id="tarefas">
+        <ol id="tarefas">
           <?php foreach ($tarefas as $tarefa) { ?>
-            <div id=<?= $tarefa->id ?> class="tarefa row">
-              <div class="form-check col-5">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <p class="form-check-label descricaoTarefa" for="flexCheckDefault">
-                  <?= $tarefa->descricao ?>
-                </p>
+            <li>
+              <div id=<?= $tarefa->id ?> class="tarefa row">
+                <div class="col-5">
+                  <p class="form-check-label descricaoTarefa" for="flexCheckDefault">
+                    <?= $tarefa->descricao ?>
+                  </p>
+                </div>
+                <div class="iconesDaTarefa col-7 text-end">
+                  <span class="data-limite"><?= $tarefa->dataLimite ?></span>
+                  <span class="badge rounded-pill text-bg-primary nivelBadge"><?= $tarefa->dificuldade ?></span>
+                  <button class="btn">
+                    <ion-icon name="close-circle"></ion-icon>
+                  </button>
+                </div>
               </div>
-              <div class="iconesDaTarefa col-7 text-end">
-                <span class="badge rounded-pill text-bg-primary nivelBadge"><?= $tarefa->dificuldade ?></span>
-                <button class="btn">
-                  <ion-icon name="close-circle"></ion-icon>
-                </button>
-              </div>
-            </div>
+            </li>
           <?php } ?>
-        </ul>
+        </ol>
       <?php } ?>
       <section id="adicionarTarefa">
-        <a href="<?= BASEPATH ?>novaTarefa">
+        <a href="<?= BASEPATH ?>novaTarefa/today">
           <button class="btn">
             <ion-icon name="add-circle-sharp"></ion-icon>
           </button>

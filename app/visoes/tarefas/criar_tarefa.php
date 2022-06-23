@@ -10,9 +10,15 @@
   <title>Nova Tarefa</title>
 </head>
 <body>
-  <!--TODO JOICE: Ver como passa parâmetro para cá. Isso vai mudar de acordo com 
-  a página que chamou a criar_tarefa.php -->
-  <a href="<?= BASEPATH  ?>all" class="btn botaoDeVoltar">
+  <?php
+    date_default_timezone_set('America/Campo_Grande'); 
+    
+    if(empty($paginaRetorno)) {
+      $paginaRetorno = "all";
+    }
+    $path = BASEPATH . $paginaRetorno;
+  ?>
+  <a href="<?= $path ?>" class="btn botaoDeVoltar">
     <i class='bx bx-arrow-back icon'></i>
   </a>
 
@@ -47,6 +53,8 @@
       <label for="dataLimite" class="form-label">Qual a data limite para realizar essa tarefa?</label>
       <input type="date" class="form-control" id="dataLimite" name="dataLimite" min=<?= date("Y-m-d") ?> required>
     </div>
+
+    <input type="hidden" id="path" name="path" value=<?= $path ?> >
 
     <button type="submit" class="btn btn-primary">Cadastrar</button>    
   </form>

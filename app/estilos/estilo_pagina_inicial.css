@@ -20,11 +20,6 @@
   margin-bottom: 1em;
   justify-content: space-between;
 }
-#barraDeProgresso {
-  margin-bottom: 1em;
-  margin-left: 1em;
-  margin-right: 1em;
-}
 #tarefas {
   max-height: 200px;
   overflow: scroll;
@@ -51,6 +46,9 @@
 }
 .iconesDaTarefa {
   align-items: center;
+}
+.data-limite {
+  margin-right: 5px;
 }
 #adicionarTarefa {
   margin-top: 1em;
