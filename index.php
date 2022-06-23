@@ -27,6 +27,7 @@
   Route::add('/important', fn() => $paginaInicialCtrl->important(), ['get']);
   Route::add('/novaTarefa/([A-Za-z-]*)', fn($param) => $tarefaCtrl->novaTarefaVisao($param));
   Route::add('/novaTarefa', fn() => $tarefaCtrl->novaTarefa(), ['post']);
+  Route::add('/removerTarefa/([0-9]*)', fn($id) => $tarefaCtrl->apagarTarefa($id));
 
   Route::add('/', function () {
     header('Location: ' . BASEPATH . 'all');

@@ -27,6 +27,8 @@
     </section>
 
     <section id="conteudoTodoList">
+      <?php require 'app/visoes/componentes/alerta.php' ?>
+
       <?php if(empty($tarefas)) {?>
         <?php 
           $mensagem = "Você não possui tarefas que devem ser finalizadas hoje!";
@@ -54,9 +56,11 @@
                 <div class="iconesDaTarefa col-7 text-end">
                   <span class="data-limite"><?= $tarefa->dataLimite ?></span>
                   <span class="badge rounded-pill text-bg-primary nivelBadge"><?= $tarefa->dificuldade ?></span>
-                  <button class="btn">
-                    <ion-icon name="close-circle"></ion-icon>
-                  </button>
+                  <a href="<?= BASEPATH ?>removerTarefa/<?= intval($tarefa->id) ?>">
+                    <button class="btn">
+                      <ion-icon name="close-circle"></ion-icon>
+                    </button>
+                  </a>
                 </div>
               </div>
             </li>
@@ -69,9 +73,6 @@
             <ion-icon name="add-circle-sharp"></ion-icon>
           </button>
         </a>
-        <button class="btn">
-          <ion-icon name="trash-outline"></ion-icon>
-        </button>
       </section>
     </section>
   </div>

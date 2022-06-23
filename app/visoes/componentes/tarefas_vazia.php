@@ -6,7 +6,7 @@
 <body>
   <div>
     <img src="<?= BASEPATH ?>publico/assets/imagens/cadastrar_tarefas.jpg">
-    <p><?= $mensagem ?></p>
+    <p class="mensagem"><?= $mensagem ?></p>
   </div>
 </body>
 </html>
