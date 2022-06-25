@@ -66,16 +66,8 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center">
               <h3 class="titulo_top_left">To-Do  <i class="bi bi-check-square-fill"></i></h3>
-            </div>
-            <div class="col-md-8" style="display: flex;justify-content: space-evenly;align-items: center;">
-                <div class="submit-line_top_mid">
-                    <button class="submit-lente" type="submit" style="margin-left: 15px">
-                      <i class="bi bi-search"></i>
-                    </button>
-                    <input class="barraPesquisa" type="text" />
-                </div>
             </div>
         </div>
     </div>

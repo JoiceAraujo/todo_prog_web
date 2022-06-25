@@ -6,7 +6,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="<?= BASEPATH  ?>app/estilos/estilo_pagina_inicial.css">
-  <script language="JavaScript" src="<?= BASEPATH  ?>app/scripts/pagina_inicial.js"></script>
 
   <title>Hoje</title>
 </head>
@@ -27,7 +26,10 @@
     </section>
 
     <section id="conteudoTodoList">
-      <?php require 'app/visoes/componentes/alerta.php' ?>
+      <?php 
+        require 'app/visoes/componentes/alerta.php';
+        date_default_timezone_set('America/Campo_Grande');
+      ?>
 
       <?php if(empty($tarefas)) {?>
         <?php 
@@ -38,7 +40,6 @@
         <section id="cabecalhoTodoList">
           <div>
             <h5>
-              <?= date_default_timezone_set('America/Campo_Grande'); ?> 
               Tarefas que devem ser finalizadas até hoje - <?= date('d/m/y'); ?>
             </h5>
           </div>
