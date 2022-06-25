@@ -6,7 +6,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="<?= BASEPATH  ?>app/estilos/estilo_pagina_inicial.css">
-  <script language="JavaScript" src="<?= BASEPATH  ?>app/scripts/pagina_inicial.js"></script>
 
   <title>Hoje</title>
 </head>
@@ -27,6 +26,11 @@
     </section>
 
     <section id="conteudoTodoList">
+      <?php 
+        require 'app/visoes/componentes/alerta.php';
+        date_default_timezone_set('America/Campo_Grande');
+      ?>
+
       <?php if(empty($tarefas)) {?>
         <?php 
           $mensagem = "Você não possui tarefas que devem ser finalizadas hoje!";
@@ -36,7 +40,6 @@
         <section id="cabecalhoTodoList">
           <div>
             <h5>
-              <?= date_default_timezone_set('America/Campo_Grande'); ?> 
               Tarefas que devem ser finalizadas até hoje - <?= date('d/m/y'); ?>
             </h5>
           </div>
@@ -54,9 +57,11 @@
                 <div class="iconesDaTarefa col-7 text-end">
                   <span class="data-limite"><?= $tarefa->dataLimite ?></span>
                   <span class="badge rounded-pill text-bg-primary nivelBadge"><?= $tarefa->dificuldade ?></span>
-                  <button class="btn">
-                    <ion-icon name="close-circle"></ion-icon>
-                  </button>
+                  <a href="<?= BASEPATH ?>removerTarefa/<?= intval($tarefa->id) ?>">
+                    <button class="btn">
+                      <ion-icon name="close-circle"></ion-icon>
+                    </button>
+                  </a>
                 </div>
               </div>
             </li>
@@ -69,9 +74,6 @@
             <ion-icon name="add-circle-sharp"></ion-icon>
           </button>
         </a>
-        <button class="btn">
-          <ion-icon name="trash-outline"></ion-icon>
-        </button>
       </section>
     </section>
   </div>

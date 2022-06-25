@@ -65,7 +65,7 @@
       return $this->$campo = $valor; 
     }
 
-    public function salvar(): void
+    public function salvar(): bool
     {
         $con = BancoDeDados::pegarOuCriarConexao();
 
@@ -81,7 +81,7 @@
         $stm->bindValue(':id_usuario', $this->usuario);
         $stm->bindValue(':tarefa_realizada', $this->tarefaRealizada);
 
-        $stm->execute();
+        return $stm->execute();
     }
 
     static public function listarTodasTarefas(): array
@@ -253,6 +253,14 @@
       }
 
       return $tarefas;
+    }
+
+    static public function apagarTarefa($idTarefa) : bool {
+      $con = BancoDeDados::pegarOuCriarConexao();
+
+      $sql = 'DELETE FROM tarefas WHERE id = :id';
+      $stm = $con->prepare($sql);
+      return $stm->execute(array('id' =>intval($idTarefa)));
     }
   }
 ?>

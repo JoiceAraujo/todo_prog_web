@@ -33,7 +33,7 @@
 
     body{
         min-height: 100vh;
-        background-color: var(--body-color);
+        background-color: var(--body-color) !important;
         transition: var(--tran-05);
     }
 

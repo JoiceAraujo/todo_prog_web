@@ -1,4 +1,10 @@
 img {
   height: 55%;
   width: 70%;
+  margin-left: 15%;
+}
+.mensagem {
+  text-align: center;
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
 }

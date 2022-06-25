@@ -27,10 +27,29 @@
         'false',
         '1');
 
-        $tarefa->salvar();
+        $tarefaCriada = $tarefa->salvar();
+        if(!$tarefaCriada) {
+          $mensagem = 'Não foi possível salvar a tarefa';
+          header('Location: ' . 'all' . '?mensagem=' . $mensagem);
+        }
 
-        $path = $_POST['path'];
-        header('Location: ' . $path);
+        header('Location: ' . 'all');
+      } catch (\Throwable $th) {
+        header('Location: ' . BASEPATH . 'all');
+      }
+    }
+
+    public function apagarTarefa($id) {
+      try {
+        $tarefaApagada = Tarefa::apagarTarefa($id);
+        
+        if($tarefaApagada) {
+          $mensagem = 'Tarefa apagada com sucesso';
+        } else {
+          $mensagem = 'Não foi possível apagar a tarefa';
+        }
+        sleep(1);
+        header('Location: ' . BASEPATH . 'all?mensagem=' . $mensagem);
       } catch (\Throwable $th) {
         header('Location: ' . BASEPATH . 'all');
       }

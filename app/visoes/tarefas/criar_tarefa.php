@@ -53,9 +53,6 @@
       <label for="dataLimite" class="form-label">Qual a data limite para realizar essa tarefa?</label>
       <input type="date" class="form-control" id="dataLimite" name="dataLimite" min=<?= date("Y-m-d") ?> required>
     </div>
-
-    <input type="hidden" id="path" name="path" value=<?= $path ?> >
-
     <button type="submit" class="btn btn-primary">Cadastrar</button>    
   </form>
 </body>
